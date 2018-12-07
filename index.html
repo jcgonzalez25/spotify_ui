@@ -6,21 +6,41 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="index.css">
-
+  <link rel="stylesheet" href="bottom.css">
+  <link rel="stylesheet" href="user_content.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
   <div class="p-0 m-0 user_content">
-
+    <div class="row made_for_user_caption no-gutters d-flex align-items-end m">
+      <div class="w-100 text-center">
+        <h5>Made For JC</h5>
+        <span>Get better recomendations the more you listen</span>
+      </div>
+      <div class="recomendations_album_art w-100 d-flex">
+        <div class="wrapper_for_album">
+            <div class="album"></div>
+            <span class="text-center">Release Radar</span>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="p-0 m-0 fixed-bottom bottom">
+    <div class="progress" id="progress_container">
+      <div class="progress-bar" id="progressbar"role="progressbar" style="width:30%;"></div>
+    </div>
     <div class="row currently_playing no-gutters">
       <div class="col-2 text-center">
         <span class="fas fa-chevron-circle-up fa-2x"></span>
       </div>
-      <div class="col-8 current_song_info">
+      <div class="col-8 current_song_info text-center">
         <span id="song_title">Bro Safari </span>
+        <span class="fas fa-circle fa-xs" style="font-size:5px;vertical-align: middle;"></span>
+        <span id="song_name">Osangala</span>
+        <br>
+        <span class="fas fa-mobile-alt" id="icon_device_available"></span>
+        <span id="device_available">Devices Available</span>
       </div>
       <div class="col-2 text-center">
         <span class="far fa-play-circle align-middle fa-2x"></span>

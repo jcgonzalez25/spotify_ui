@@ -1,35 +1,8 @@
 html,body{
   height:100%;
-
 }
-
 .user_content{
   height: 100%;
-  padding-left: 0px;!important;
-  padding-right: 0px;!important;
 }
-
-
-/* current playing song info */
-.current_song_info{
-
-}
-#current_title{
-
-}
-#current_artist{
-  
-}
-
-
-
 .bottom{
-}
-.navigation{
-}
-.currently_playing{
-  padding-left: 0px;!important;
-  padding-right:0px;!important;
-  min-height: 5%;
-  font-size: 1em;
 }

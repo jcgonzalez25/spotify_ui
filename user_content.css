@@ -1,0 +1,13 @@
+/* intro_section of the user_content */
+.made_for_user_caption{
+  height: 50%;
+}
+.recomendations_album_art{
+  overflow-x: scroll;
+  height: 50%;
+}
+.album{
+  width: 150px;
+  height:200px;
+  background-color: grey;
+}
