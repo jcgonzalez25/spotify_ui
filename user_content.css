@@ -24,7 +24,10 @@
   overflow-x: scroll;
   height: 50%;
 }
-
+/* NOTE:
+GAP is created so navigation doesnt block
+album art, 
+ */
 .gap{
   height:15%;
 }
