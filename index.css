@@ -6,9 +6,13 @@ html,body{
   height: 100%;
   overflow-y: scroll;
   background-color: #121212;
-    color:#fefefa;
+  color:#fefefa;
 }
 .bottom{
   background-color: #535353;
   color:#fefefa;
+}
+
+.navigation .col{
+  color:#aaa;
 }
