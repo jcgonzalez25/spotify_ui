@@ -5,6 +5,7 @@
 .recomendations_album_art{
   overflow-x: scroll;
   height: 50%;
+  white-space: nowrap;
 }
 .album{
   width: 100%;
@@ -13,4 +14,9 @@
 }
 .wrapper_for_album{
   width:40%;
+  height:100%;
+}
+slider_for_albums{
+  overflow-x: scroll;
+  height: 50%;
 }
