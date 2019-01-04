@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="current_playing_song/index.css">
   <link rel="stylesheet" href="bottom.css">
   <link rel="stylesheet" href="user_content.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -132,17 +133,22 @@
       </div>
     </div>
     <div class="row d-none song_info_div no-gutters">
-      <div class="row no-gutters w-100">
-        <div class="col-1">
-          <span class="fas fa-chevron-circle-down fa-2x"></span>
+      <div class="col-12 no-gutters">
+        <div class="row current_song_title_section no-gutters">
+          <div class="col-1 text-center">
+            <span class="fas fa-chevron-circle-down fa-2x"></span>
+          </div>
+          <div class="col-10 text-center">
+            <span> PLAYING FROM LIBRARY</span>
+              <br>
+            <span> Some Playlist</span>
+          </div>
+          <div class="col-1 text-center">
+            <span class="fas fa-chevron-circle-down fa-2x"></span>
+          </div>
         </div>
-        <div class="col-10 text-center">
-          <span> PLAYING FROM LIBRARY</span>
-            <br>
-          <span> Some Playlist</span>
-        </div>
-        <div class="col-1">
-          <span class="fas fa-chevron-circle-down fa-2x"></span>
+        <div class="row no-gutters current_song_carousel">
+          <div class="col"></div>
         </div>
       </div>
     </div>
