@@ -39,6 +39,7 @@ let CAnimation = {
       }
     }, 10);
   },
+  completedFullScreen:null,
   animateMainContent:function(){
     let topAnimation = setInterval(() => {
       song_info_height_value = getIntValue(song_info_div.style.height);
@@ -53,6 +54,7 @@ let CAnimation = {
         if (song_info_height_value >= screenHeight - 20) {
           song_info_div.style.height = (screenHeight - song_info_height_value) + song_info_height_value + "px";
           clearInterval(topAnimation);
+          this.completedFullScreen();
         }
       }
     }, 10);
@@ -62,7 +64,10 @@ let CAnimation = {
 SongInfo = {
   getSong: function() {},
   getAlbumArt: function() {},
-  showPlayingStatus: function() {
+  enableFullScreenControls:function(){
+    Carousel.swiperOn();
+  },
+  showPlayingStatus:function() {
     let fullScreen         = !song_info_div.classList.contains("d-none");
     let navigation_element = document.querySelector(".navigation");
     let song_info_height_value;
@@ -70,6 +75,9 @@ SongInfo = {
     CAnimation.init();
     CAnimation.animateNav();
     CAnimation.animateMainContent();
+    CAnimation.completedFullScreen=()=>{
+      this.enableFullScreenControls();
+    }
   },
   hidePlayingStatus: function() {
 
