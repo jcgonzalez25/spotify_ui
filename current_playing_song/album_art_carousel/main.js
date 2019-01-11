@@ -1,31 +1,35 @@
 //figure album movement
 //testing for show playing status
 (function(){
-  SongInfo.showPlayingStatus();
+  //SongInfo.showPlayingStatus();
 })();
 let Carousel = {
   AlbumWrapper:null,
-  centeredScroll:328,
+  centeredScrollX:328,
   moveArtwork:function(event){
-    console.log("hello");
+    
   },
   focusOnMainElement:function(){
     this.AlbumWrapper.scrollLeft = this.centeredScroll;
   },
+  showAlbumArtwork:function(){
+    this.AlbumWrapper.classList.remove("d-none");
+    this.AlbumWrapper.classList.add("d-flex");
+  },
   swiperOn:function(){
     this.AlbumWrapper = document.querySelector("#album_art_Wrapper");
+    this.focusOnMainElement();
+    this.showAlbumArtwork();
     this.AlbumWrapper.addEventListener("scroll",event=>this.moveArtwork(event));
-    this.AlbumWrapper.addEventListener("touchend",event=>this.dragoff(event));
-    this.AlbumWrapper.addEventListener("touchstart",event=>this.dragon(event));
+    this.AlbumWrapper.addEventListener("touchend",event=>this.draggingFinished(event));
+    this.AlbumWrapper.addEventListener("touchstart",event=>this.dragging(event));
   },
-  dragoff:function(event){
+  draggingFinished:function(event){
     let onNextSong = false;
-    console.log("dragging done");
     this.AlbumWrapper.style.overflow= "hidden";
-    this.AlbumWrapper.scrollLeft = this.centeredScroll;
+    this.AlbumWrapper.scrollLeft = this.centeredScrollX;
   },
-  dragon:function(event){
+  dragging:function(event){
     this.AlbumWrapper.style.overflow = "scroll";
-    console.log("this.Wrapper");
   }
 }
