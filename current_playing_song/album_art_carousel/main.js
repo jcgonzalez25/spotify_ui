@@ -1,7 +1,7 @@
 //figure album movement
 //testing for show playing status
 (function(){
-  //SongInfo.showPlayingStatus();
+  SongInfo.showPlayingStatus();
 })();
 let Carousel = {
   AlbumWrapper:null,
@@ -10,7 +10,8 @@ let Carousel = {
     
   },
   focusOnMainElement:function(){
-    this.AlbumWrapper.scrollLeft = this.centeredScroll;
+    console.log(this.centeredScrollX);
+    this.AlbumWrapper.scrollLeft = this.centeredScrollX;
   },
   showAlbumArtwork:function(){
     this.AlbumWrapper.classList.remove("d-none");
@@ -18,8 +19,8 @@ let Carousel = {
   },
   swiperOn:function(){
     this.AlbumWrapper = document.querySelector("#album_art_Wrapper");
-    this.focusOnMainElement();
     this.showAlbumArtwork();
+    this.focusOnMainElement();
     this.AlbumWrapper.addEventListener("scroll",event=>this.moveArtwork(event));
     this.AlbumWrapper.addEventListener("touchend",event=>this.draggingFinished(event));
     this.AlbumWrapper.addEventListener("touchstart",event=>this.dragging(event));
