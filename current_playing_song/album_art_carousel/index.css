@@ -1,0 +1,11 @@
+.current_song_carousel{
+  height:40%;
+}
+#current_song_artwork{
+  margin-left: 2%;
+  margin-right: 2%;
+  position:relative;
+}
+#album_art_Wrapper{
+  overflow:scroll;
+}
