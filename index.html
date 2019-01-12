@@ -7,6 +7,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="current_playing_song/index.css">
+  <link rel="stylesheet" href="current_playing_song/album_art_carousel/index.css">
   <link rel="stylesheet" href="bottom.css">
   <link rel="stylesheet" href="user_content.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -149,12 +150,57 @@
           </div>
         </div>
         <div class="row no-gutters current_song_carousel">
-          <div class="col"></div>
+          <div class="col">
+            <div id="album_art_Wrapper" class="d-none">
+              <img src="http://www.flat-e.com/flate5/wp-content/uploads/cover-960x857.jpg" alt="" height="100%" width="90%">
+              <img id="current_song_artwork" src="https://static1.squarespace.com/static/5404f3d8e4b0fd1f5b929d34/5aab03972b6a28f6e25a5691/5aab0398352f5397b602f602/1536858475790/FINDLAY_CD_FRONT-COVER-2-website.jpg" alt="" height="100%" width="90%">
+              <img src="http://www.flat-e.com/flate5/wp-content/uploads/cover-960x857.jpg" alt="" height="100%" width="90%">
+            </div>
+          </div>
         </div>
-        <div class="row no-gutters add_to_controls_section"></div>
-        <div class="row no-gutters now_playing_volume_section"></div>
-        <div class="row no-gutters track_controller"></div>
-        <div class="row no-gutters location_controller"></div>
+        <div class="row no-gutters add_to_controls_section align-items-end">
+          <div class="col-2 text-center">
+              <span class="fas fa-home "></span>
+          </div>
+          <div class="col-8 text-center">
+            <span id="song_title">The Ringer</span><br>
+            <span id="artist">Eminem</span>
+          </div>
+          <div class="col-2 text-center">
+              <span class="fas fa-home m-auto"></span>
+          </div>
+        </div>
+        <div class="row now_playing_volume_section">
+          <div class="col d-flex flex-row">
+                <div class="progress align-self-center w-100">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="draggerButton" ></div>
+          </div>
+        </div>
+        <div class="row no-gutters track_controller">
+          <div class="col-2 text-center d-flex justify-content-center">
+              <i class="fas fa-random fa-2x align-self-center"></i>
+          </div>
+          <div class="col-2 text-center d-flex justify-content-center">
+              <i class="fas fa-step-backward fa-2x align-self-center"></i>
+          </div>
+          <div class="col-4  text-center d-flex justify-content-center">
+            <span class="far fa-play-circle fa-7x align-self-center"></span>
+          </div>
+          <div class="col-2 text-center fa-2x d-flex justify-content-center">
+              <i class="fas fa-step-forward align-self-center"></i>
+          </div>
+          <div class="col-2 text-center fa-2x d-flex justify-content-center">
+              <i class="fas fa-redo-alt align-self-center"></i>
+          </div>
+        </div>
+        <div class="row no-gutters location_controller">
+          <div class="col text-center">
+              <i class="fas fa-tablet-alt"></i>
+              <span>Devices Available</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row navigation no-gutters">
@@ -170,8 +216,11 @@
         <span class="fas fa-book-reader fa-lg align-middle"></span><br>
         <span>Library</span>
       </div>
-  </div></div>
+  </div>
+</div>
+  <script src="current_playing_song/album_art_carousel/songs.js"></script>
   <script src="current_playing_song/current_song_script.js"></script>
   <script src="index.js"></script>
+  <script src="current_playing_song/album_art_carousel/main.js"></script>
 </body>
 </html>
