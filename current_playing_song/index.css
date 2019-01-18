@@ -1,9 +1,59 @@
-.song_info_div{
 
+.song_info_div{
+  height:0px;
+  overflow: hidden;
 }
 .current_song_title_section{
   height:10%;
 }
 .current_song_carousel{
   height:50%;
+}
+.current_song_shrinker{
+  animation-name: c_shrinker;
+  animation-duration:   .3s;
+  animation-fill-mode: forwards;
+}
+.current_song_expander{
+  animation-name: c_expander;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+@keyframes c_shrinker{
+  from{
+    height:100vh;
+  }
+  to{
+    height: 0vh;
+  }
+}
+@keyframes shrinker{
+  to{
+    height: 0px;
+  }
+}
+@keyframes c_expander{
+  to{
+    height:100vh;
+  }
+}
+
+
+.nav_expander{
+  animation-name: n_expander;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+.nav_shrinker{
+  animation-name: shrinker;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+@keyframes n_expander{
+  from{
+    height:0px;
+  }
+  to{
+    height: 40px;
+  }
 }

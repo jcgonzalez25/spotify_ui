@@ -1,7 +1,3 @@
-
-
-
-
 function editKeyFrameValue(keyframeName,propertyName,newValue){
   function doRule(cssRule,value,ruleIndex){
     let ParentRule = cssRule.parentStyleSheet;
@@ -86,6 +82,7 @@ let CAnimation = {
     if(this.haveInitialized == false){
       this.haveInitialized = true;
       this.NavigationElement.element.addEventListener("animationend",(event)=>this.onFullScreenAnimationComplete(event));
+      
     }
   },
   animateNav:function(){
