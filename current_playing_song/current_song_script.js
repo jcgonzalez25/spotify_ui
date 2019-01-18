@@ -1,3 +1,31 @@
+
+
+
+
+function editKeyFrameValue(keyframeName,propertyName,newValue){
+  function doRule(cssRule,value,ruleIndex){
+    let ParentRule = cssRule.parentStyleSheet;
+    ParentRule.deleteRule(ruleIndex);
+    ParentRule.insertRule(value);
+  }
+  let x = document.styleSheets;
+  for(let i = 0; i < x.length;i++){
+    let c = x[i].cssRules;
+    for(let m = 0; m< c.length;m++){
+      let r = new RegExp("^@keyframes "+keyframeName,"g");      
+      let haystack = c[m].cssText;
+      let keyFrameFindStatus = haystack.search(r);
+      if(keyFrameFindStatus != -1){
+        finder = propertyName +  ": .*;";
+        replacement = propertyName + ": " + newValue +";";
+        finder = new RegExp(finder);
+        let rep = c[m].cssText.replace(finder,replacement);
+        doRule(c[m],rep,m);
+      }
+    }
+  }
+};
+
 const getIntValue = function(eStyleValue) {
   return parseInt(eStyleValue.slice(0, -2));
 }
@@ -12,78 +40,79 @@ let SongInfo, SongController, SongState,CurrentSongAnimation;
   song_statusbar_element.addEventListener("click", () => SongInfo.showPlayingStatus());
   document.querySelector("#now_playing_toggle_button").addEventListener("click",()=> SongInfo.showPlayingStatus());
 })();
+
+
+function ElementHandler(element){
+  this.element = element;
+  this.implementedCss=null;
+  this.expandSelectorName=null;
+  this.shrinkSelectorName=null;
+  this.setkeyFrameCSSValues = function(cssExpanderName,cssShrinkerName){
+    this.expandSelectorName = cssExpanderName;
+    this.shrinkSelectorName = cssShrinkerName;
+  }
+  this.setInitialStyling=function(){
+    if(this.element.classList.contains("navigation")){
+      this.element.style.height = this.element.clientHeight + "px";
+    }
+  }
+  this.toggleDisplayAnimation=function(){
+    if(this.implementedCss == null){
+      this.setInitialStyling();
+      if(this.element.classList.contains("navigation")){
+        this.element.classList.add(this.shrinkSelectorName);
+      }else if(this.element.classList.contains("song_info_div")){
+        this.element.classList.add(this.expandSelectorName);
+      }
+      this.implementedCss = true;
+    }else{
+      if(this.element.classList.contains(this.expandSelectorName)){
+        this.element.classList.add(this.shrinkSelectorName);
+        this.element.classList.remove(this.expandSelectorName);
+      }else{
+        this.element.classList.add(this.expandSelectorName);
+        this.element.classList.remove(this.shrinkSelectorName);
+      }
+    }
+  }
+}
+
 let CAnimation = {
   fullScreen:null,
-  NavigationElement:document.querySelector(".navigation"),
+  SongInfoElement:new ElementHandler(document.querySelector(".song_info_div")),
+  NavigationElement:new ElementHandler(document.querySelector(".navigation")),
+  haveInitialized:false,
   init:function(){
-    if(!this.fullScreen)
-      this.fullScreenSetup();
-  },
-  fullScreenSetup:function(){
-    song_info_div.style.height          = "0px";
-    this.NavigationElement.style.height = this.NavigationElement.clientHeight + "px";
-    song_info_div.classList.remove("d-none");
+    if(this.haveInitialized == false){
+      this.haveInitialized = true;
+      this.NavigationElement.element.addEventListener("animationend",(event)=>this.onFullScreenAnimationComplete(event));
+    }
   },
   animateNav:function(){
-    let navigation_element_height_value;
-    let id = setInterval(() => {
-      navigation_element_height_value = getIntValue(this.NavigationElement.style.height);
-      if(this.fullScreen){
-        this.NavigationElement.style.height = navigation_element_height_value + 1 + "px";
-        if(navigation_element_height_value === navigation_original_height)
-          clearInterval(id);
-      }else{
-        this.NavigationElement.style.height = navigation_element_height_value - 1 + "px";
-        if(navigation_element_height_value === 0)
-          clearInterval(id);
-      }
-    }, 10);
+    this.NavigationElement.setkeyFrameCSSValues("nav_expander","nav_shrinker");
+    this.NavigationElement.toggleDisplayAnimation();
   },
-  completedFullScreen:null,
   animateMainContent:function(){
-    let topAnimation = setInterval(() => {
-      song_info_height_value = getIntValue(song_info_div.style.height);
-      if (this.fullScreen) {
-        song_info_div.style.height = song_info_height_value - 30 + "px";
-        if(song_info_height_value === 0)
-          clearInterval(topAnimation)
-          song_info_div.classList.add("d-none");
-      } else {
-        song_info_div.classList.remove("d-none");
-        song_info_div.style.height = song_info_height_value + 30 + "px";
-        if (song_info_height_value >= screenHeight - 20) {
-          song_info_div.style.height = (screenHeight - song_info_height_value) + song_info_height_value + "px";
-          clearInterval(topAnimation);
-          this.completedFullScreen();
-        }
-      }
-    }, 10);
+    this.SongInfoElement.setkeyFrameCSSValues("current_song_expander","current_song_shrinker")
+    this.SongInfoElement.toggleDisplayAnimation();
+  },
+  onFullScreenAnimationComplete:function(){
+    Carousel.swiperOn();
   }
-};
+}
 
 SongInfo = {
-  getSong: function() {},
-  getAlbumArt: function() {},
-  enableFullScreenControls:function(){
-    Carousel.swiperOn();
-  },
   showPlayingStatus:function() {
-    let fullScreen         = !song_info_div.classList.contains("d-none");
-    let navigation_element = document.querySelector(".navigation");
-    let song_info_height_value;
-    CAnimation.fullScreen  = !song_info_div.classList.contains("d-none");
     CAnimation.init();
     CAnimation.animateNav();
-    CAnimation.animateMainContent();
-    CAnimation.completedFullScreen=()=>{
-      this.enableFullScreenControls();
-    }
+    CAnimation.animateMainContent();    
   },
   hidePlayingStatus: function() {
 
   }
 };
 SongController = {
-  playSong: function() {},
-  pauseSong: function() {}
+  updateElements:function(){
+
+  }
 };
