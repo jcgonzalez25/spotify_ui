@@ -1,0 +1,31 @@
+/* current playing song info */
+.currently_playing{
+  padding-left: 0px;!important;
+  padding-right:0px;!important;
+  min-height: 5%;
+  font-size: 1em;
+}
+.current_song_info{
+
+}
+#current_title,{
+
+}
+#current_artist{
+
+}
+#device_available,#icon_device_available{
+  font-size: .7em;
+}
+#progress_container{
+  height:3px;
+  width: 100%;
+}
+#progressbar{
+  background-color: black;
+}
+/* end of the currently_playing section */
+
+
+/* navbar section */
+.navigation

@@ -1,0 +1,58 @@
+.current_song_carousel{
+  height:40%;
+  overflow: hidden;
+}
+#current_song_artwork{
+  margin-left: 2%;
+  margin-right: 2%;
+  position:relative;
+}
+#album_art_Wrapper{
+  overflow:scroll;
+  height: 100%;
+}
+#neighboring_album{
+
+}
+
+
+
+
+.add_to_controls_section{
+  height:10%;
+}
+
+
+
+.now_playing_volume_section{
+  height:10%;
+}
+.now_playing_volume_section .col:first-child{
+  margin-left: 2%;
+  margin-right:2%;
+}
+.now_playing_volume_section .progress{
+  background-color: #A9A9A9;
+  height: 2px;
+}
+.now_playing_volume_section .progress-bar{
+  width:20%;
+  background-color:white;
+}
+.now_playing_volume_section .draggerButton{
+  border-radius: 50%;
+  width:10px;
+  height:10px;
+  background-color: white;
+  position: absolute;
+  align-self: center;
+  left:20%;
+}
+.track_controller{
+  height:20%;
+}
+
+
+
+
+

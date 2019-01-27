@@ -1,0 +1,33 @@
+/* intro_section of the user_content */
+.made_for_user_caption{
+  height: 40%;
+}
+.other_category{
+  height:40%;
+}
+.recomendations_album_art{
+  overflow-x: scroll;
+  height: 60%;
+  white-space: nowrap;
+}
+
+.album{
+  width: 100%;
+  height:80%;
+  background-color: grey;
+}
+.wrapper_for_album{
+  width:40%;
+  height:100%;
+}
+.slider_for_albums{
+  overflow-x: scroll;
+  height: 50%;
+}
+/* NOTE:
+GAP is created so navigation doesnt block
+album art, 
+ */
+.gap{
+  height:15%;
+}
