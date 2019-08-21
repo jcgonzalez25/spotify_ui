@@ -22,6 +22,9 @@
   },
   "homepage": "https://github.com/jcgonzalez25/spotify_ui#readme",
   "dependencies": {
-    "body-parser": "^1.18.3"
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "errorhandler": "^1.5.0",
+    "mongoose": "^5.4.7"
   }
 }

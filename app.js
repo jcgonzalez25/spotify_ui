@@ -3,6 +3,8 @@ const path = require('path');
 const bodyParser = require('path');
 const errorHandler = require('errorhandler');
 const Query = require('./query.js');
+const mongoose = require('mongoose');
+const cors = require('cors');
 const Validator = require('./Validator.js');
 mongoose.promise = global.Promise;
 
