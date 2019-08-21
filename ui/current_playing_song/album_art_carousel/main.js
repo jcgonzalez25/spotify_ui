@@ -67,8 +67,8 @@ let Carousel = {
     this.showAlbumArtwork();
     this.focusOnMainElement();
     this.AlbumElements = this.AlbumWrapper.children;
-    this.AlbumWrapper.addEventListener("scroll",()=>{debugger;this.scrolling(event)});
-    this.AlbumWrapper.addEventListener("touchend",event=>{debugger;this.touching=false;});
+    this.AlbumWrapper.addEventListener("scroll",()=>{this.scrolling(event)});
+    this.AlbumWrapper.addEventListener("touchend",event=>{this.touching=false;});
     this.AlbumWrapper.addEventListener("touchstart",event=>this.touching=true);
     
   },
